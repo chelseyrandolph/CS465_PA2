@@ -1,0 +1,30 @@
+useradd root password123
+login root password123
+useradd chelsey wvu123
+useradd randolph pass456
+groupadd cs465
+groupadd lastname
+usergrp chelsey cs465
+usergrp randolph lastname
+useradd user000 mypass
+usergrp user000 cs465
+logout
+login chelsey wvu123
+mkfile myfile.txt
+write myfile.txt Text being added to myfile.txt from chelsey.
+mkfile xyz.txt
+write xyz.txt Text being added to xyz.txt from chelsey.
+chmod xyz.txt rwx rw- r-x
+chgrp xyz.txt cs465
+logout
+login root password123
+read myfile.txt
+write xyz.txt Text from root.
+logout
+login randolph pass456
+execute xyz.txt
+logout
+login user000 mypass
+execute xyz.txt
+logout
+end

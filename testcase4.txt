@@ -1,0 +1,43 @@
+useradd root password123
+login root password123
+useradd user1 pass1
+useradd user2 pass2
+useradd user3 pass3
+groupadd groupA
+groupadd groupB
+usergrp user1 groupA
+usergrp user2 groupB
+usergrp user3 groupA
+logout
+login user1 pass1
+mkfile file1.txt
+mkfile file2.txt
+chmod file1.txt rwx rw- r—
+chgrp file1.txt groupA
+write file1.txt This text is in file1.txt from user1.
+logout
+login user3 pass3
+write file1.txt Text written into file1.txt
+read file1.txt
+execute file1.txt
+ls file2.txt
+logout
+login user2 pass2
+chown file2.txt user2
+write file2.txt Text written into file2.txt.
+read file2.txt
+logout
+login root password123
+chown file2.txt user2
+useradd user4 pass4
+logout
+login user2 pass2
+read file2.txt
+login user1 pass1
+logout
+login user4 pass4
+write file1.txt
+execute file1.txt
+read file1.txt
+logout
+end
